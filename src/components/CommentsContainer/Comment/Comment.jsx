@@ -14,7 +14,7 @@ const Comment = ({ text, postId, id }) => {
   const [prevCommentText, setPrevCommentText] = useState(text);
   const [isInputDisabled, setInputDisabled] = useState(false);
 
-  const textareaHander = ({ target }) => {
+  const textareaHandler = ({ target }) => {
     setCommentText(target.value);
   };
 
@@ -60,14 +60,14 @@ const Comment = ({ text, postId, id }) => {
     <div className={styles.wrapper}>
       {!isInputDisabled
         ?
-        <div className={styles.text} onInput={textareaHander}>
+        <div className={styles.text}>
           {commentText}
         </div>
         :
         <textarea
           className={styles.textInput}
           value={commentText}
-          onChange={textareaHander}
+          onChange={textareaHandler}
           placeholder="Напишите что-нибудь здесь ..."
         ></textarea>
       }
