@@ -1,0 +1,31 @@
+.postWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 40px;
+  padding: 10vh 10vw;
+}
+
+.closePostCircle {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 35px;
+  height: 35px;
+  margin-bottom: 20px;
+  border-radius: 50%;
+  background-color: var(--blue);
+  transition: 0.3s;
+  cursor: pointer;
+
+  &:hover {
+    transform: scale(1.2);
+  }
+}
+
+.closePostIcon {
+  width: 25px;
+  height: 15px;
+  color: var(--white);
+}

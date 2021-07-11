@@ -1,0 +1,34 @@
+.centeredContent {
+  width: 100%;
+  margin: 0 auto;
+}
+
+@media (min-width: 576px) {
+  .centeredContent {
+    max-width: 540px;
+  }
+}
+
+@media (min-width: 768px) {
+  .centeredContent {
+    max-width: 720px;
+  }
+}
+
+@media (min-width: 992px) {
+  .centeredContent {
+    max-width: 960px;
+  }
+}
+
+@media (min-width: 1200px) {
+  .centeredContent {
+    max-width: 1140px;
+  }
+}
+
+@media (min-width: 1400px) {
+  .centeredContent {
+    max-width: 1320px;
+  }
+}
