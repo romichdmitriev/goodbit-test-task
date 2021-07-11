@@ -11,7 +11,8 @@ import sprite from '../../../assets/icons/sprite.svg';
 const Comment = ({ text, postId, id }) => {
   const dispatch = useDispatch();
   const [commentText, setCommentText] = useState(text);
-  const [inputDisabled, setInputDisabled] = useState(false);
+  const [prevCommentText, setPrevCommentText] = useState(text);
+  const [isInputDisabled, setInputDisabled] = useState(false);
 
   const textareaHander = ({ target }) => {
     setCommentText(target.value);
@@ -42,16 +43,22 @@ const Comment = ({ text, postId, id }) => {
       )
     );
 
+    setPrevCommentText(commentText);
     editСomment();
   };
 
   const editСomment = () => {
-    setInputDisabled(!inputDisabled);
+    setInputDisabled(!isInputDisabled);
   };
+
+  const undoChangesOfComment = () => {
+    setCommentText(prevCommentText);
+    setInputDisabled(!isInputDisabled);
+  }
 
   return (
     <div className={styles.wrapper}>
-      {!inputDisabled
+      {!isInputDisabled
         ?
         <div className={styles.text} onInput={textareaHander}>
           {commentText}
@@ -65,7 +72,7 @@ const Comment = ({ text, postId, id }) => {
         ></textarea>
       }
 
-      {!inputDisabled
+      {!isInputDisabled
         ?
         <svg className={styles.icon} onClick={editСomment}>
           <use xlinkHref={`${sprite}#edit-post`} />
@@ -76,9 +83,17 @@ const Comment = ({ text, postId, id }) => {
         </svg>
       }
 
-      <svg className={styles.icon} onClick={() => deleteComment(id)}>
-        <use xlinkHref={`${sprite}#delete`} />
-      </svg>
+      {!isInputDisabled
+        ?
+        <svg className={styles.icon} onClick={() => deleteComment(id)}>
+          <use xlinkHref={`${sprite}#delete`} />
+        </svg>
+        :
+        <svg className={styles.icon} onClick={undoChangesOfComment}>
+          <use xlinkHref={`${sprite}#undo`} />
+        </svg>
+      }
+
     </div>
   );
 };

@@ -37,8 +37,8 @@
 
 .icon {
   visibility: hidden;
-  width: 15px;
-  height: 15px;
+  max-width: 15px;
+  max-height: 15px;
   margin-left: 10px;
   color: var(--grey-200);
   cursor: pointer;
