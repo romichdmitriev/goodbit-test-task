@@ -1,0 +1,21 @@
+html,
+body {
+  min-height: 100%;
+}
+
+body {
+  font: 400 16px 'Roboto', sans-serif;
+  color: var(--black);
+  background: #4fbfe5 url('../assets/images/background.svg') no-repeat;
+  background-size: cover;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+pre,
+textarea {
+  font-family: 'Roboto', sans-serif;
+}
